@@ -4,3 +4,20 @@ spring:
 
   thymeleaf:
     cache: false
+
+logging:
+  level:
+    root: info
+    ge.edu.sangu.kanban: debug
+
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %highlight(%-5level) %cyan(%logger{36}) - %msg%n"
+    file: "%d{yyyy-MM-dd} [%thread] %-5level %logger{36} - %msg%n"
+
+  file:
+    name: log/kanban.log
+
+  logback:
+    rollingpolicy:
+      file-name-pattern: log/app-%d{yyyy-MM-dd}.%i.log
+      max-history: 30
