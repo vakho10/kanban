@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="card" th:fragment="column(id, color, title, description, cards)">
+    <div class="card-body offcanvas-parent flex-grow-0 text-center" th:classappend="${color}">
+        <a class="text-reset text-decoration-none" data-bs-toggle="offcanvas" th:href="'#' + 'offcanvasColumn' + ${id}" role="button"
+           aria-controls="offcanvasExample">
+            <h5 class="card-title mb-0" th:text="${title}">Column Title</h5>
+        </a>
+        <div class="offcanvas offcanvas-end" tabindex="-1" th:id="'offcanvasColumn' + ${id}" th:aria-labelledby="'offcanvasColumnLabel' + ${id}">
+            <div class="offcanvas-body">
+                <a href="#" class="btn btn-primary">A</a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row row-cols-1 g-3">
+            <div class="col" th:each="c: ${cards}">
+                <div th:replace="~{fragments/card :: card(id=${c.id}, title=${c.title}, description=${c.description})}"></div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <small class="text-body-secondary" th:text="${description}">Column Description</small>
+    </div>
+</div>
+</body>
+</html>

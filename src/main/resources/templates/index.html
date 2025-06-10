@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout.html}">
 <head>
@@ -7,7 +8,13 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <h1>Home Page</h1>
+    <h1>Kanban</h1>
+    <hr>
+    <div class="card-group">
+        <th:block th:each="c: ${columns}">
+            <div th:replace="~{fragments/column :: column(id=${c.id},color=${c.getColor()}, title=${c.title}, description=${c.description}, cards=${c.cards})}"></div>
+        </th:block>
+    </div>
 </div>
 </body>
 </html>

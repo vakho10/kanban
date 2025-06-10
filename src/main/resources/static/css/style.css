@@ -1,0 +1,14 @@
+.offcanvas-parent {
+    position: relative;
+    overflow: hidden;
+}
+
+.offcanvas-parent .offcanvas {
+    position: absolute;
+}
+
+.offcanvas-parent .modal-backdrop {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
