@@ -5,6 +5,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class RegisterController {
 
     @Autowired
-    private UserDetailsManager userDetailsManager;
+    private JdbcUserDetailsManager userDetailsManager;
 
     @Autowired
     private PasswordEncoder passwordEncoder;

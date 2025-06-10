@@ -5,6 +5,18 @@ spring:
   thymeleaf:
     cache: false
 
+  datasource:
+    url: jdbc:h2:file:~/kanban-db
+    driver-class-name: org.h2.Driver
+    username: admin
+    password: admin
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
+
 logging:
   level:
     root: info
