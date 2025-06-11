@@ -2,7 +2,7 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
 <body>
-<div th:fragment="kanban(id, title, description, columns)" th:id="${'kanban' + id}">
+<div th:fragment="board(id, title, description, pillars)" th:id="${'kanban' + id}">
     <div class="dropstart z-1 position-absolute top-0 end-0 mt-1 me-1">
         <button class="btn btn-sm btn-tr rounded-circle" type="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
@@ -20,8 +20,8 @@
     <p class="text-center" th:text="${description}">Kanban Description</p>
     <hr>
     <div class="card-group">
-        <th:block th:each="c: ${columns}">
-            <div th:replace="~{fragments/column :: column(id=${c.id},color=${c.getColor()}, title=${c.title}, description=${c.description}, cards=${c.cards})}"></div>
+        <th:block th:each="p: ${pillars}">
+            <div th:replace="~{fragments/pillar :: pillar(id=${p.id},color=${p.getColor()}, title=${p.title}, description=${p.description}, cards=${p.cards})}"></div>
         </th:block>
     </div>
 </div>
