@@ -1,6 +1,7 @@
 package ge.edu.sangu.kanban.db;
 
 import jakarta.persistence.*;
+import jakarta.persistence.Column;
 import lombok.ToString;
 
 @Entity

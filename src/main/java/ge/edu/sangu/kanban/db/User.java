@@ -1,6 +1,7 @@
 package ge.edu.sangu.kanban.db;
 
 import jakarta.persistence.*;
+import jakarta.persistence.Column;
 import lombok.ToString;
 
 import java.util.Set;
@@ -19,8 +20,8 @@ public class User {
     @Column(nullable = false)
     private boolean enabled;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @ToString.Exclude // Tell Lombok to not include in the generate toString()!
     private Set<Authority> authorities;
 
 //    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

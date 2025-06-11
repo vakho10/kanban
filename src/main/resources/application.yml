@@ -33,3 +33,4 @@ logging:
     rollingpolicy:
       file-name-pattern: log/app-%d{yyyy-MM-dd}.%i.log
       max-history: 30
+

@@ -1,6 +1,6 @@
 package ge.edu.sangu.kanban;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.core.userdetails.User;
@@ -11,17 +11,14 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class SetupDummyData {
 
-    @Autowired
-    private JdbcUserDetailsManager userDetailsManager;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final JdbcUserDetailsManager userDetailsManager;
+    private final PasswordEncoder passwordEncoder;
 
     @EventListener(ApplicationReadyEvent.class)
     public void onApplicationReady() {
-
         var users = List.of(
                 // Administrator
                 User.withUsername("admin")

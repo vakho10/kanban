@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="kanban(id, title, description, columns)" th:id="${'kanban' + id}">
+    <div class="dropstart z-1 position-absolute top-0 end-0 mt-1 me-1">
+        <button class="btn btn-sm btn-tr rounded-circle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+            <i class="fa-solid fa-gear"></i>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Edit</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Remove</a></li>
+        </ul>
+    </div>
+    <h1 class="text-center" th:text="${title}">Kanban Title</h1>
+    <p class="text-center" th:text="${description}">Kanban Description</p>
+    <hr>
+    <div class="card-group">
+        <th:block th:each="c: ${columns}">
+            <div th:replace="~{fragments/column :: column(id=${c.id},color=${c.getColor()}, title=${c.title}, description=${c.description}, cards=${c.cards})}"></div>
+        </th:block>
+    </div>
+</div>
+</body>
+</html>

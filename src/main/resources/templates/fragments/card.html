@@ -5,13 +5,23 @@
 <div class="card" th:fragment="card(id, title, description)">
     <div class="card-body flex-grow-0">
         <div class="dropstart z-1 position-absolute top-0 end-0 mt-1 me-1">
-            <button class="btn btn-sm btn-light rounded-circle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-sm btn-light rounded-circle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
                 <i class="fa-solid fa-gear"></i>
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">A</a></li>
-                <li><a class="dropdown-item" href="#">B</a></li>
-                <li><a class="dropdown-item" href="#">C</a></li>
+                <li><a class="dropdown-item" href="#">Edit</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Move Up</a></li>
+                <li><a class="dropdown-item" href="#">Move Down</a></li>
+                <li><a class="dropdown-item" href="#">Move Left</a></li>
+                <li><a class="dropdown-item" href="#">Move Right</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Remove</a></li>
             </ul>
         </div>
         <h5 class="card-title" th:text="${title}">Title</h5>

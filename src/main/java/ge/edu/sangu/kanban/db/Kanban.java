@@ -9,10 +9,9 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Column {
+public class Kanban {
     private Long id;
-    private String color;
     private String title;
     private String description;
-    private List<Card> cards;
+    private List<Column> columns;
 }

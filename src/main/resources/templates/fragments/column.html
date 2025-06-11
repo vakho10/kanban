@@ -3,16 +3,37 @@
       xmlns:th="http://www.thymeleaf.org">
 <body>
 <div class="card" th:fragment="column(id, color, title, description, cards)">
-    <div class="card-body offcanvas-parent flex-grow-0 text-center" th:classappend="${color}">
-        <a class="text-reset text-decoration-none" data-bs-toggle="offcanvas" th:href="'#' + 'offcanvasColumn' + ${id}" role="button"
-           aria-controls="offcanvasExample">
-            <h5 class="card-title mb-0" th:text="${title}">Column Title</h5>
-        </a>
-        <div class="offcanvas offcanvas-end" tabindex="-1" th:id="'offcanvasColumn' + ${id}" th:aria-labelledby="'offcanvasColumnLabel' + ${id}">
-            <div class="offcanvas-body">
-                <a href="#" class="btn btn-primary">A</a>
-            </div>
+    <div class="card-body flex-grow-0 text-center" th:classappend="${color}">
+        <div class="dropstart z-1 position-absolute top-0 end-0 mt-1 me-1">
+            <button class="btn btn-sm btn-tr rounded-circle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                <i class="fa-solid fa-gear"></i>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Edit</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item disabled" href="#">Move Left</a></li>
+                <li><a class="dropdown-item" href="#">Move Right</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Remove</a></li>
+            </ul>
         </div>
+        <h5 class="card-title" th:text="${title}">Column Title</h5>
+        <h5 class="card-text" th:text="${description}">Column Description</h5>
+        <!--        <a class="text-reset text-decoration-none" data-bs-toggle="offcanvas" th:href="'#' + 'offcanvasColumn' + ${id}" role="button"-->
+        <!--           aria-controls="offcanvasExample">-->
+        <!--            <h5 class="card-title" th:text="${title}">Column Title</h5>-->
+        <!--            <h5 class="card-text" th:text="${description}">Column Description</h5>-->
+        <!--        </a>-->
+        <!--        <div class="offcanvas offcanvas-end" tabindex="-1" th:id="'offcanvasColumn' + ${id}" th:aria-labelledby="'offcanvasColumnLabel' + ${id}">-->
+        <!--            <div class="offcanvas-body">-->
+        <!--                <a href="#" class="btn btn-primary">A</a>-->
+        <!--            </div>-->
+        <!--        </div>-->
     </div>
     <div class="card-body">
         <div class="row row-cols-1 g-3">

@@ -2,11 +2,10 @@ package ge.edu.sangu.kanban.controller;
 
 import ge.edu.sangu.kanban.controller.form.RegisterForm;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
-import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,13 +14,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
+@RequiredArgsConstructor
 public class RegisterController {
 
-    @Autowired
-    private JdbcUserDetailsManager userDetailsManager;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final JdbcUserDetailsManager userDetailsManager;
+    private final PasswordEncoder passwordEncoder;
 
     @GetMapping("/register")
     public String register(Model model) {

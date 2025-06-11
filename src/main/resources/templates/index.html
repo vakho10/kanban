@@ -8,12 +8,8 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <h1>Kanban</h1>
-    <hr>
-    <div class="card-group">
-        <th:block th:each="c: ${columns}">
-            <div th:replace="~{fragments/column :: column(id=${c.id},color=${c.getColor()}, title=${c.title}, description=${c.description}, cards=${c.cards})}"></div>
-        </th:block>
+    <div class="card px-5 py-4">
+        <div th:replace="~{fragments/kanban :: kanban(id=${kanban.id}, title=${kanban.title}, description=${kanban.description}, columns=${kanban.columns})}"></div>
     </div>
 </div>
 </body>
