@@ -8,8 +8,8 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <div class="card px-5 py-4">
-        <div th:replace="~{fragments/board :: board(id=${board.id}, title=${board.title}, description=${board.description}, pillars=${board.pillars})}"></div>
+    <div class="card px-5 py-4" th:each="board, iStat : ${boards}">
+        <div th:replace="~{fragments/board :: board(id=${board.id}, title=${board.title}, description=${board.description}, pillars=${board.pillars}, boardEditForm=${boardEditForms.get(iStat.index)})}"></div>
     </div>
 </div>
 </body>

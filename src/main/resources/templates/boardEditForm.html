@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<head>
+    <title>Edit Board</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 col-lg-4">
+            <h1>Register</h1>
+            <form th:action="@{/board/edit}" th:object="${boardEditForm}" method="post">
+                <input type="hidden" th:field="*{id}"/>
+                <div>
+                    <label for="titleField" class="form-label">Title</label>
+                    <input th:field="*{title}" type="text" class="form-control" id="titleField"
+                           th:classappend="${#fields.hasErrors('title')} ? 'is-invalid' : ''"/>
+                    <div class="invalid-feedback"
+                         th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title?
+                    </div>
+                </div>
+                <div>
+                    <label for="descriptionField" class="form-label">Description</label>
+                    <input th:field="*{description}" type="text" class="form-control" id="descriptionField"
+                           th:classappend="${#fields.hasErrors('description')} ? 'is-invalid' : ''"/>
+                    <div class="invalid-feedback"
+                         th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description?
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+                <div th:if="${param.success}" class="alert alert-success alert-dismissible fade show" role="alert">
+                    Successfully updated board
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
