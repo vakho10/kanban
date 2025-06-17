@@ -10,6 +10,10 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
 
+    /**
+     *
+     * @param boardEditForm
+     */
     @Transactional
     public void updateBoard(BoardEditForm boardEditForm) {
         Board board = getBoardById(boardEditForm.getId());
@@ -18,7 +22,14 @@ public class BoardService {
         boardRepository.save(board);
     }
 
-    public Board getBoardById(Long id) {
+    /**
+     * Finds and returns Board entity using ID.
+     *
+     * @param id
+     * @return Found board entity object
+     * @throws IllegalArgumentException If board with that ID was not found
+     */
+    public Board getBoardById(Long id) throws IllegalArgumentException {
         return boardRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("No Board found for id: " + id));
     }
